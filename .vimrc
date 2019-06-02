@@ -63,6 +63,9 @@ let g:ale_set_quickfix = 1
 "主动打开显示窗口
 let g:ale_open_list = 1
 
+Plug 'SirVer/ultisnips'
+"使用Python3
+let g:UltiSnipsUsePythonVersion = 3
 
 Plug 'tpope/vim-surround'
 Plug 'altercation/vim-colors-solarized'
@@ -82,8 +85,6 @@ endif
 
 " 自己的vim设定
 " Show 5 lines of errors (default: 10)
-let g:ale_list_window_size = 5
-let g:ale_keep_list_window_open = 1
 set fo-=r
 set nu
 
