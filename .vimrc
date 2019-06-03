@@ -101,6 +101,12 @@ endif
 set fo-=r
 set nu
 
+"回到上次的文件编辑位置
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+
 "test
 
 call plug#end()
