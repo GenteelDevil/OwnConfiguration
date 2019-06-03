@@ -57,7 +57,7 @@ let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
 "保持下面的显示窗口始终打开
 let g:ale_keep_list_window_open = 1
-let g:ale_list_window_size = 10
+let g:ale_list_window_size = 5
 "使用quickfix
 let g:ale_set_quickfix = 1
 "主动打开显示窗口
@@ -66,6 +66,11 @@ let g:ale_open_list = 1
 Plug 'SirVer/ultisnips'
 "使用Python3
 let g:UltiSnipsUsePythonVersion = 3
+
+Plug 'majutsushi/tagbar'
+filetype on
+let g:tagbar_width = 35
+
 
 Plug 'tpope/vim-surround'
 Plug 'altercation/vim-colors-solarized'
