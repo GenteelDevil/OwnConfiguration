@@ -70,6 +70,11 @@ let g:UltiSnipsUsePythonVersion = 3
 Plug 'majutsushi/tagbar'
 filetype on
 let g:tagbar_width = 35
+"对于支持文件自动打开预览窗口
+autocmd VimEnter * nested :call tagbar#autoopen(1)
+"多个tab窗口也打开预览窗口
+autocmd BufEnter * nested :call tagbar#autoopen(0)
+
 
 
 Plug 'tpope/vim-surround'
