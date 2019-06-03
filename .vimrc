@@ -47,6 +47,18 @@ let g:ycm_max_num_candidates = 10
 let g:ycm_max_num_identifier_candidates = 10
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+Plug 'majutsushi/tagbar'
+filetype on
+let g:tagbar_width = 30
+let g:tagbar_left = 1
+"对于支持文件自动打开预览窗口
+autocmd VimEnter * nested :call tagbar#autoopen(1)
+"多个tab窗口也打开预览窗口
+autocmd BufEnter * nested :call tagbar#autoopen(0)
+
+
+
 Plug 'w0rp/ale'
 " 在保存的时候进行检查
 let g:ale_fix_on_save = 1
@@ -66,15 +78,6 @@ let g:ale_open_list = 1
 Plug 'SirVer/ultisnips'
 "使用Python3
 let g:UltiSnipsUsePythonVersion = 3
-
-Plug 'majutsushi/tagbar'
-filetype on
-let g:tagbar_width = 35
-"对于支持文件自动打开预览窗口
-autocmd VimEnter * nested :call tagbar#autoopen(1)
-"多个tab窗口也打开预览窗口
-autocmd BufEnter * nested :call tagbar#autoopen(0)
-
 
 
 Plug 'tpope/vim-surround'
