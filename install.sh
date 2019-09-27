@@ -17,7 +17,9 @@ echo -e "\033[31m installing required software...\033[0m"
 sudo apt-get install zsh vim tmux git
 echo -e "\033[31m configuring oh-my-zsh...\033[0m"
 # 增加对文件夹的检测,如果存在文件夹,那么一定是有配置文件的存在
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-echo -e "\033[31m configuring vim...\033[0m"
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+zsh_config="/home/$USER/.oh-my-zsh"
+if [ -d ${zsh_config} ];then
+	echo -e "\033[31m oh-my-zsh already existed.\033[0m"
+else
+	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
