@@ -23,3 +23,12 @@ if [ -d ${zsh_config} ];then
 else
 	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
+# 检测vim-plug的存在
+vim_plug="/home/$USER/.vim/autoload/plug.vim"
+echo -e "\033[31m configuring vim-plug...\033[0m"
+if [ -f ${vim_plug} ];then
+	echo -e "\033[31m vim-plug already existed.\033[0m"
+else
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+			    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
