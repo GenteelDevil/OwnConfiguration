@@ -4,8 +4,9 @@ echo "configuring date..."
 TZ='Asia/Shanghai'; export TZ
 echo -e "\033[31m updating source.list...\033[0m"
 today=$(date +%y-%m-%d)
-update_time = $(echo $(ls -l /etc/apt/source.list | sed 's/.* [0-9][0-9]\([0-9]*-[0-9]*-[0-9]*\).*/\1/g'))
-if ["$today==$update_time"]
+echo $today
+update_time = $(echo $(ls -l --full-time /etc/apt/sources.list) | sed 's/.* [0-9][0-9]\([0-9]*-[0-9]*-[0-9]*\).*/\1/g')
+if [$today == $update_time]
 then
 	sudo apt-get update
 fi
