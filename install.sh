@@ -32,3 +32,8 @@ else
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 			    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+# 对YCM进行编译
+
+# 对salaried颜色插件放置
+mkdir ~/.vim/colors
+cp ~/.vim/plugged/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/solarized.vim
