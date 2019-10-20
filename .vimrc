@@ -50,8 +50,14 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 Plug 'majutsushi/tagbar'
 filetype on
-let g:tagbar_width = 30
+" 设置显示窗口在左侧且宽度为50
+let g:tagbar_width = 50
 let g:tagbar_left = 1
+" 高亮当前所处的tag 
+let g:tagbar_autoshowtag = 1
+" 设置tagbar的刷新时间，建议设置，体验爆表
+" 但是在参考文档中说设置太小可能出现问题
+set updatetime=100
 "对于支持文件自动打开预览窗口
 autocmd VimEnter * nested :call tagbar#autoopen(1)
 "多个tab窗口也打开预览窗口
