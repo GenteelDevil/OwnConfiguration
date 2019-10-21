@@ -50,7 +50,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 Plug 'majutsushi/tagbar'
 filetype on
-" 设置显示窗口在左侧且宽度为50
+" 设置显示窗口在左侧且宽度为30
 let g:tagbar_width = 50
 let g:tagbar_left = 1
 " 高亮当前所处的tag 
@@ -106,7 +106,8 @@ endif
 " Show 5 lines of errors (default: 10)
 set fo-=r
 set nu
-
+" 设置一个tab的缩进为4个空格
+set ts=4
 "回到上次的文件编辑位置
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
