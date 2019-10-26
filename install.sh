@@ -32,7 +32,22 @@ else
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 			    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+
 # 对YCM进行编译
+ycm_dir="/home/$USER/.vim/plugged/YouCompleteMe"
+echo "building essentials downloading..."
+sudo apt-get install build-essential cmake python3-dev
+if [ -d ${ycm_dir} ];then
+	echo -e "YCM dir existed"
+	echo -e "checking whether compiled"
+	python3 ${ycm_dir}/install.py --clang-completer
+else
+	echo -e "YCM dir does not exist"
+	echo -e "Downloading YCM"
+	git clone https://github.com/ycm-core/YouCompleteMe.git ${ycm_dir}
+	echo -e "compiling YCM"
+	python3 ${ycm_dir}/install.py --clang-completer		
+fi
 
 # 对salaried颜色插件放置
 mkdir ~/.vim/colors
