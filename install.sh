@@ -38,14 +38,14 @@ ycm_dir="/home/$USER/.vim/plugged/YouCompleteMe"
 echo "building essentials downloading..."
 sudo apt-get install build-essential cmake python3-dev
 if [ -d ${ycm_dir} ];then
-	echo -e "YCM dir existed"
-	echo -e "checking whether compiled"
+	echo -e "\033[31m YCM dir existed\033[0m"
+	echo -e "\033[31m checking whether compiled...\033[0m"
 	python3 ${ycm_dir}/install.py --clang-completer
 else
-	echo -e "YCM dir does not exist"
-	echo -e "Downloading YCM"
+	echo -e "\033[31m YCM dir does not exist\033[0m"
+	echo -e "\033[31m Downloading YCM...\033[0m"
 	git clone https://github.com/ycm-core/YouCompleteMe.git ${ycm_dir}
-	echo -e "compiling YCM"
+	echo -e "\033[31m compiling YCM...\033[0m"
 	python3 ${ycm_dir}/install.py --clang-completer		
 fi
 
