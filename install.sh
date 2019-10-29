@@ -46,7 +46,7 @@ else
 	echo -e "\033[31m Downloading YCM...\033[0m"
 	git clone https://github.com/ycm-core/YouCompleteMe.git ${ycm_dir}
 	echo -e "\033[31m compiling YCM...\033[0m"
-	python3 ${ycm_dir}/install.py --clang-completer		
+	python3 ${ycm_dir}/install.py --all	
 fi
 
 # 对salaried颜色插件放置
