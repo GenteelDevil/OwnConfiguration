@@ -23,32 +23,4 @@ if [ -d ${zsh_config} ];then
 else
 	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
-# 检测vim-plug的存在
-vim_plug="/home/$USER/.vim/autoload/plug.vim"
-echo -e "\033[31m configuring vim-plug...\033[0m"
-if [ -f ${vim_plug} ];then
-	echo -e "\033[31m vim-plug already existed.\033[0m"
-else
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-			    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
 
-# 对YCM进行编译
-ycm_dir="/home/$USER/.vim/plugged/YouCompleteMe"
-echo "building essentials downloading..."
-sudo apt-get install build-essential cmake python3-dev
-if [ -d ${ycm_dir} ];then
-	echo -e "\033[31m YCM dir existed\033[0m"
-	echo -e "\033[31m checking whether compiled...\033[0m"
-	python3 ${ycm_dir}/install.py --clang-completer
-else
-	echo -e "\033[31m YCM dir does not exist\033[0m"
-	echo -e "\033[31m Downloading YCM...\033[0m"
-	git clone https://github.com/ycm-core/YouCompleteMe.git ${ycm_dir}
-	echo -e "\033[31m compiling YCM...\033[0m"
-	python3 ${ycm_dir}/install.py --all	
-fi
-
-# 对salaried颜色插件放置
-mkdir ~/.vim/colors
-cp ~/.vim/plugged/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/solarized.vim
