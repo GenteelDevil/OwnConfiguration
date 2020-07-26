@@ -14,7 +14,8 @@ fi
 # 如果source.list的更新时间是今天,那么不更新它
 echo -e "\033[31m installing required software...\033[0m"
 # 增加对这些软件的存在检测,或许没有必要
-sudo apt-get install zsh vim tmux git
+sudo apt-get install zsh vim tmux git tmuxinator
+pip install virtualenv
 echo -e "\033[31m configuring oh-my-zsh...\033[0m"
 # 增加对文件夹的检测,如果存在文件夹,那么一定是有配置文件的存在
 zsh_config="/home/$USER/.oh-my-zsh"
@@ -24,3 +25,14 @@ else
 	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
+# install hacktools
+echo -e "\033[31m install hacktools...\033[0m"
+mkdir ~/HackTools
+virtualenv -p python3 ~/HackTools/hackenv
+git clone https://github.com/maurosoria/dirsearch.git ~/HackTools/Web/dirsearch
+git clone https://github.com/lijiejie/subDomainsBrute.git ~/HackTools/Web/subdomainbrute
+
+# set alias
+echo "alias hackenv=\"source ~/HackTools/hackenv/bin/activate\"" >> ~/.zshrc
+echo "alias dirsearch=\"python3 ~/HackTools/Web/dirsearch/dirsearch.py\"" >> ~/.zshrc
+echo "alias subdomainbrute=\"python3 ~/HackTools/Web/subdomainbrute.py\"" >> ~/.zshrc
