@@ -14,7 +14,7 @@ fi
 # 如果source.list的更新时间是今天,那么不更新它
 echo -e "\033[31m installing required software...\033[0m"
 # 增加对这些软件的存在检测,或许没有必要
-sudo apt-get install zsh vim tmux git tmuxinator
+sudo apt-get install zsh vim tmux git tmuxinator curl
 pip install virtualenv
 echo -e "\033[31m configuring oh-my-zsh...\033[0m"
 # 增加对文件夹的检测,如果存在文件夹,那么一定是有配置文件的存在
