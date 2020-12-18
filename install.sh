@@ -22,17 +22,5 @@ zsh_config="/home/$USER/.oh-my-zsh"
 if [ -d ${zsh_config} ];then
 	echo -e "\033[31m oh-my-zsh already existed.\033[0m"
 else
-	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	sh ./install.sh 
 fi
-
-# install hacktools
-echo -e "\033[31m install hacktools...\033[0m"
-mkdir ~/HackTools
-virtualenv -p python3 ~/HackTools/hackenv
-git clone https://github.com/maurosoria/dirsearch.git ~/HackTools/Web/dirsearch
-git clone https://github.com/lijiejie/subDomainsBrute.git ~/HackTools/Web/subdomainbrute
-
-# set alias
-echo "alias hackenv=\"source ~/HackTools/hackenv/bin/activate\"" >> ~/.zshrc
-echo "alias dirsearch=\"python3 ~/HackTools/Web/dirsearch/dirsearch.py\"" >> ~/.zshrc
-echo "alias subdomainbrute=\"python3 ~/HackTools/Web/subdomainbrute.py\"" >> ~/.zshrc
